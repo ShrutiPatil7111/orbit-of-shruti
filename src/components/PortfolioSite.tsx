@@ -20,7 +20,7 @@ import {
   Download
 } from 'lucide-react';
 import heroImage from '@/assets/hero-bg.jpg';
-import profilePhoto from '@/assets/profile-photo-new.jpg';
+import profilePhoto from '@/assets/shruti-profile.jpg';
 
 const PortfolioSite = () => {
   const socialLinks = [
@@ -34,7 +34,11 @@ const PortfolioSite = () => {
 
   const skills = [
     'Python', 'Java', 'C/C++', 'JavaScript', 'HTML/CSS', 'SQL', 
-    'Data Structures & Algorithms', 'Git/GitHub', 'Streamlit', 'PyTorch'
+    'Data Structures & Algorithms', 'OOPs', 'Git/GitHub', 'Streamlit', 'PyTorch'
+  ];
+
+  const languages = [
+    'English', 'Hindi', 'Marathi', 'German'
   ];
 
   const projects = [
@@ -208,19 +212,19 @@ const PortfolioSite = () => {
                   </div>
                   
                   <div className="relative">
-                    <div className="absolute left-4 w-4 h-4 bg-accent rounded-full border-4 border-background"></div>
+                    <div className="absolute left-4 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
                     <Card className="ml-12 p-6 hover-lift">
-                      <h4 className="font-semibold">HSC</h4>
-                      <p className="text-accent">Dnyandeep Junior College</p>
+                      <h4 className="font-semibold">HSC – PCM</h4>
+                      <p className="text-primary">Dnyandeep Junior College</p>
                       <p className="text-sm text-muted-foreground">2021 • 97.50%</p>
                     </Card>
                   </div>
                   
                   <div className="relative">
-                    <div className="absolute left-4 w-4 h-4 bg-muted-foreground rounded-full border-4 border-background"></div>
+                    <div className="absolute left-4 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
                     <Card className="ml-12 p-6 hover-lift">
                       <h4 className="font-semibold">SSC</h4>
-                      <p className="text-muted-foreground">Kamalabai Ramnane Kanya Vidyalaya</p>
+                      <p className="text-primary">Kamalabai Ramnane Kanya Vidyalaya</p>
                       <p className="text-sm text-muted-foreground">2019 • 96.60%</p>
                     </Card>
                   </div>
@@ -236,20 +240,33 @@ const PortfolioSite = () => {
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Technical Skills</h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {skills.map((skill, index) => (
-              <Card key={index} className="p-4 hover-lift text-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg mx-auto mb-3 flex items-center justify-center">
-                  <Code2 className="w-6 h-6 text-primary-foreground" />
+              <Card key={index} className="p-3 hover-lift text-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg mx-auto mb-2 flex items-center justify-center">
+                  <Code2 className="w-5 h-5 text-primary-foreground" />
                 </div>
-                <h3 className="font-medium text-sm">{skill}</h3>
+                <h3 className="font-medium text-xs">{skill}</h3>
               </Card>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground mb-4">Languages: English, Hindi, Marathi, German</p>
-            <p className="text-muted-foreground">Concepts: Data Structures & Algorithms, OOPs, Git, GitHub</p>
+      {/* Languages Section */}
+      <section className="py-16 bg-card/30">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12 gradient-text">Languages</h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            {languages.map((language, index) => (
+              <Card key={index} className="p-3 hover-lift text-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-lg mx-auto mb-2 flex items-center justify-center">
+                  <Globe className="w-5 h-5 text-primary-foreground" />
+                </div>
+                <h3 className="font-medium text-xs">{language}</h3>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -285,7 +302,7 @@ const PortfolioSite = () => {
                     </Button>
                   )}
                   {project.downloadUrl && (
-                    <Button size="sm" variant="secondary" asChild>
+                    <Button size="sm" asChild>
                       <a href={project.downloadUrl} target="_blank" rel="noopener noreferrer">
                         <Download className="w-4 h-4 mr-2" />
                         Download EXE
@@ -339,14 +356,16 @@ const PortfolioSite = () => {
               
               <Card className="p-6 hover-lift">
                 <Calendar className="w-6 h-6 text-accent mb-3" />
-                <h4 className="font-semibold mb-2">Data Analytics & ML Workshop</h4>
-                <p className="text-muted-foreground">RIT (March 2024)</p>
+                <h4 className="font-semibold mb-2">Data Analytics & Machine Learning Workshop</h4>
+                <p className="text-muted-foreground">RIT, Shivaji University Kolhapur (March 2024)</p>
+                <p className="text-sm text-muted-foreground mt-2">Participated in a 2-day hands-on workshop on Data Analytics & Machine Learning using Python under Lead College Scheme.</p>
               </Card>
               
               <Card className="p-6 hover-lift">
                 <Calendar className="w-6 h-6 text-accent mb-3" />
-                <h4 className="font-semibold mb-2">IEEE Day – Code Spark Contest</h4>
+                <h4 className="font-semibold mb-2">IEEE Day - Code Spark Contest</h4>
                 <p className="text-muted-foreground">(October 2023)</p>
+                <p className="text-sm text-muted-foreground mt-2">Participated in a national-level coding contest organized by IEEE Student Branch, solving real-world programming challenges as part of IEEE Day celebrations.</p>
               </Card>
             </div>
           </div>
@@ -423,7 +442,7 @@ const PortfolioSite = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6">Send Message</h3>
               <Card className="p-6">
-                <form action="https://formspree.io/f/xdkokqyp" method="POST" className="space-y-4">
+                <form action="https://formspree.io/f/your-form-id" method="POST" className="space-y-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
                     <input 
