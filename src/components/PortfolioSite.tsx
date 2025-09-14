@@ -20,7 +20,7 @@ import {
   Download
 } from 'lucide-react';
 import heroImage from '@/assets/hero-bg.jpg';
-import profilePhoto from '@/assets/profile-photo.jpg';
+import profilePhoto from '@/assets/profile-photo-new.jpg';
 
 const PortfolioSite = () => {
   const socialLinks = [
@@ -33,14 +33,8 @@ const PortfolioSite = () => {
   ];
 
   const skills = [
-    { name: 'Python', level: 90 },
-    { name: 'Java', level: 85 },
-    { name: 'C/C++', level: 80 },
-    { name: 'JavaScript', level: 75 },
-    { name: 'HTML/CSS', level: 85 },
-    { name: 'SQL', level: 80 },
-    { name: 'Data Structures & Algorithms', level: 85 },
-    { name: 'Git/GitHub', level: 80 }
+    'Python', 'Java', 'C/C++', 'JavaScript', 'HTML/CSS', 'SQL', 
+    'Data Structures & Algorithms', 'Git/GitHub', 'Streamlit', 'PyTorch'
   ];
 
   const projects = [
@@ -57,6 +51,7 @@ const PortfolioSite = () => {
       description: 'Deep learning system classifying MRI brain images into 4 categories, packaged as executable.',
       tech: ['Python', 'PyTorch', 'Tkinter', 'PyInstaller'],
       githubUrl: 'https://github.com/ShrutiPatil7111/Brain-Tumor-Classification-ViT',
+      downloadUrl: 'https://github.com/ShrutiPatil7111/Brain-Tumor-Classification-ViT/releases/tag/v01',
       icon: Brain
     },
     {
@@ -116,18 +111,19 @@ const PortfolioSite = () => {
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div className="stars"></div>
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
-        <div className="absolute inset-0 tech-grid opacity-30" />
+        <div className="absolute inset-0 tech-grid opacity-20" />
         
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="animate-fade-in">
             <img 
               src={profilePhoto} 
               alt="Shruti Kiran Patil"
-              className="w-32 h-32 rounded-full mx-auto mb-8 border-4 border-primary/50 shadow-2xl hover-glow"
+              className="w-48 h-48 rounded-full mx-auto mb-8 border-4 border-primary/50 shadow-2xl hover-glow object-cover"
             />
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               Hi, I'm <span className="gradient-text">Shruti</span> 👋
@@ -197,39 +193,38 @@ const PortfolioSite = () => {
             {/* Education Timeline */}
             <div className="animate-slide-in-right">
               <h3 className="text-2xl font-semibold mb-6 text-primary">Education</h3>
-              <div className="space-y-6">
-                <Card className="p-6 hover-lift">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-3 h-3 bg-primary rounded-full mt-2 flex-shrink-0" />
-                    <div>
+              <div className="relative">
+                {/* Vertical line */}
+                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-muted-foreground"></div>
+                
+                <div className="space-y-8">
+                  <div className="relative">
+                    <div className="absolute left-4 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
+                    <Card className="ml-12 p-6 hover-lift">
                       <h4 className="font-semibold">B.Tech – Computer Engineering</h4>
                       <p className="text-primary">Rajarambapu Institute of Technology, Islampur</p>
                       <p className="text-sm text-muted-foreground">2025 • CGPA: 8.11</p>
-                    </div>
+                    </Card>
                   </div>
-                </Card>
-                
-                <Card className="p-6 hover-lift">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-3 h-3 bg-accent rounded-full mt-2 flex-shrink-0" />
-                    <div>
+                  
+                  <div className="relative">
+                    <div className="absolute left-4 w-4 h-4 bg-accent rounded-full border-4 border-background"></div>
+                    <Card className="ml-12 p-6 hover-lift">
                       <h4 className="font-semibold">HSC</h4>
                       <p className="text-accent">Dnyandeep Junior College</p>
                       <p className="text-sm text-muted-foreground">2021 • 97.50%</p>
-                    </div>
+                    </Card>
                   </div>
-                </Card>
-                
-                <Card className="p-6 hover-lift">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-3 h-3 bg-muted-foreground rounded-full mt-2 flex-shrink-0" />
-                    <div>
+                  
+                  <div className="relative">
+                    <div className="absolute left-4 w-4 h-4 bg-muted-foreground rounded-full border-4 border-background"></div>
+                    <Card className="ml-12 p-6 hover-lift">
                       <h4 className="font-semibold">SSC</h4>
                       <p className="text-muted-foreground">Kamalabai Ramnane Kanya Vidyalaya</p>
                       <p className="text-sm text-muted-foreground">2019 • 96.60%</p>
-                    </div>
+                    </Card>
                   </div>
-                </Card>
+                </div>
               </div>
             </div>
           </div>
@@ -241,15 +236,14 @@ const PortfolioSite = () => {
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Technical Skills</h2>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {skills.map((skill, index) => (
-              <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="flex justify-between mb-2">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-muted-foreground">{skill.level}%</span>
+              <Card key={index} className="p-4 hover-lift text-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg mx-auto mb-3 flex items-center justify-center">
+                  <Code2 className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <Progress value={skill.level} className="h-2" />
-              </div>
+                <h3 className="font-medium text-sm">{skill}</h3>
+              </Card>
             ))}
           </div>
 
@@ -281,12 +275,20 @@ const PortfolioSite = () => {
                   ))}
                 </div>
                 
-                <div className="flex space-x-3">
+                <div className="flex flex-wrap gap-2">
                   {project.liveUrl && (
                     <Button size="sm" asChild>
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4 mr-2" />
                         Live Demo
+                      </a>
+                    </Button>
+                  )}
+                  {project.downloadUrl && (
+                    <Button size="sm" variant="secondary" asChild>
+                      <a href={project.downloadUrl} target="_blank" rel="noopener noreferrer">
+                        <Download className="w-4 h-4 mr-2" />
+                        Download EXE
                       </a>
                     </Button>
                   )}
@@ -419,25 +421,55 @@ const PortfolioSite = () => {
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Professional Links</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {socialLinks.map((link, index) => (
-                  <Button 
-                    key={index} 
-                    variant="outline" 
-                    className="justify-start hover-lift hover-glow h-auto p-4"
-                    asChild
-                  >
-                    <a href={link.url} target="_blank" rel="noopener noreferrer">
-                      <link.icon className="w-5 h-5 mr-3" />
-                      <span className="text-left">
-                        <div className="font-medium">{link.name}</div>
-                        <div className="text-xs text-muted-foreground">View Profile</div>
-                      </span>
-                    </a>
+              <h3 className="text-2xl font-semibold mb-6">Send Message</h3>
+              <Card className="p-6">
+                <form action="https://formspree.io/f/xdkokqyp" method="POST" className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name" 
+                      required 
+                      className="w-full px-3 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email" 
+                      required 
+                      className="w-full px-3 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
+                    <input 
+                      type="text" 
+                      id="subject" 
+                      name="subject" 
+                      required 
+                      className="w-full px-3 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+                    <textarea 
+                      id="message" 
+                      name="message" 
+                      rows={4} 
+                      required 
+                      className="w-full px-3 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                    ></textarea>
+                  </div>
+                  <Button type="submit" className="w-full">
+                    Send Message
+                    <Mail className="w-4 h-4 ml-2" />
                   </Button>
-                ))}
-              </div>
+                </form>
+              </Card>
             </div>
           </div>
         </div>
