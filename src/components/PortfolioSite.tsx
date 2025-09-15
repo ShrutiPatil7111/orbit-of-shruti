@@ -20,7 +20,7 @@ import {
   Download
 } from 'lucide-react';
 import heroImage from '@/assets/hero-bg.jpg';
-import profilePhoto from '@/assets/shruti-profile.jpg';
+import profilePhoto from '@/assets/shruti-profile.png';
 
 const PortfolioSite = () => {
   const socialLinks = [
@@ -179,19 +179,41 @@ const PortfolioSite = () => {
               </p>
               
               <div className="space-y-4">
-                <div className="flex items-center">
-                  <Mail className="w-5 h-5 text-primary mr-3" />
-                  <span>shrutikpatil7111@gmail.com</span>
-                </div>
-                <div className="flex items-center">
-                  <Phone className="w-5 h-5 text-primary mr-3" />
-                  <span>+91-9044911171</span>
-                </div>
-                <div className="flex items-center">
-                  <MapPin className="w-5 h-5 text-primary mr-3" />
-                  <span>Pune, Maharashtra, India</span>
-                </div>
+                <Card className="p-4 hover-lift">
+                  <div className="flex items-center">
+                    <Mail className="w-5 h-5 text-primary mr-4" />
+                    <div>
+                      <p className="font-medium">Email</p>
+                      <a href="mailto:shrutikpatil7111@gmail.com" className="text-muted-foreground hover:text-primary">
+                        shrutikpatil7111@gmail.com
+                      </a>
+                    </div>
+                  </div>
+                </Card>
+                
+                <Card className="p-4 hover-lift">
+                  <div className="flex items-center">
+                    <Phone className="w-5 h-5 text-primary mr-4" />
+                    <div>
+                      <p className="font-medium">Phone</p>
+                      <a href="tel:+91-9044911171" className="text-muted-foreground hover:text-primary">
+                        +91-9044911171
+                      </a>
+                    </div>
+                  </div>
+                </Card>
+                
+                <Card className="p-4 hover-lift">
+                  <div className="flex items-center">
+                    <MapPin className="w-5 h-5 text-primary mr-4" />
+                    <div>
+                      <p className="font-medium">Location</p>
+                      <p className="text-muted-foreground">Pune, Maharashtra, India</p>
+                    </div>
+                  </div>
+                </Card>
               </div>
+              
             </div>
 
             {/* Education Timeline */}
@@ -340,35 +362,36 @@ const PortfolioSite = () => {
 
           {/* Activities */}
           <div className="mt-16">
-            <h3 className="text-2xl font-bold text-center mb-8 text-primary">Activities & Competitions</h3>
+            <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Activities</h2>
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <Card className="p-6 hover-lift">
                 <Calendar className="w-6 h-6 text-accent mb-3" />
                 <h4 className="font-semibold mb-2">Code Clash 2025</h4>
-                <p className="text-muted-foreground">402nd rank in Algorithm Arena (April 2025)</p>
+                <p className="text-muted-foreground">Participated through multiple rounds (Aptitude, CS Fundamentals and Coding Arena) and secured 402nd rank out of 450+ finalists in the Final Coding Round. (April 2025)</p>
               </Card>
               
               <Card className="p-6 hover-lift">
                 <Calendar className="w-6 h-6 text-accent mb-3" />
                 <h4 className="font-semibold mb-2">Employability Skills Training</h4>
-                <p className="text-muted-foreground">Rubicon LifeSkills (March 2024)</p>
+                <p className="text-muted-foreground">Completed soft skills and employability training program designed to enhance professional readiness by Rubicon LifeSkills Initiative. (March 2024)</p>
               </Card>
               
               <Card className="p-6 hover-lift">
                 <Calendar className="w-6 h-6 text-accent mb-3" />
                 <h4 className="font-semibold mb-2">Data Analytics & Machine Learning Workshop</h4>
-                <p className="text-muted-foreground">RIT, Shivaji University Kolhapur (March 2024)</p>
-                <p className="text-sm text-muted-foreground mt-2">Participated in a 2-day hands-on workshop on Data Analytics & Machine Learning using Python under Lead College Scheme.</p>
+                <p className="text-muted-foreground">RParticipated in a 2-day hands-on workshop on Data Analytics & Machine Learning using Python under Lead College Scheme. (March 2024)</p>
+                
               </Card>
               
               <Card className="p-6 hover-lift">
                 <Calendar className="w-6 h-6 text-accent mb-3" />
                 <h4 className="font-semibold mb-2">IEEE Day - Code Spark Contest</h4>
-                <p className="text-muted-foreground">(October 2023)</p>
-                <p className="text-sm text-muted-foreground mt-2">Participated in a national-level coding contest organized by IEEE Student Branch, solving real-world programming challenges as part of IEEE Day celebrations.</p>
+                <p className="text-muted-foreground">Participated in a national-level coding contest organized by IEEE Student Branch, solving real-world programming challenges as part of IEEE Day celebrations. (October 2023)</p>
+                
               </Card>
             </div>
           </div>
+          
         </div>
       </section>
 
@@ -395,62 +418,26 @@ const PortfolioSite = () => {
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Get In Touch</h2>
           
-          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+          <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
               <p className="text-muted-foreground mb-8">
-                I'm always open to discussing new opportunities, collaborations, or just having a chat about technology!
+                Let's Connect! Whether you want to discuss new opportunities, ideas or just want to have a chat about technology, feel free to reach out using the form below.
               </p>
               
-              <div className="space-y-4">
-                <Card className="p-4 hover-lift">
-                  <div className="flex items-center">
-                    <Mail className="w-5 h-5 text-primary mr-4" />
-                    <div>
-                      <p className="font-medium">Email</p>
-                      <a href="mailto:shrutikpatil7111@gmail.com" className="text-muted-foreground hover:text-primary">
-                        shrutikpatil7111@gmail.com
-                      </a>
-                    </div>
-                  </div>
-                </Card>
-                
-                <Card className="p-4 hover-lift">
-                  <div className="flex items-center">
-                    <Phone className="w-5 h-5 text-primary mr-4" />
-                    <div>
-                      <p className="font-medium">Phone</p>
-                      <a href="tel:+91-9044911171" className="text-muted-foreground hover:text-primary">
-                        +91-9044911171
-                      </a>
-                    </div>
-                  </div>
-                </Card>
-                
-                <Card className="p-4 hover-lift">
-                  <div className="flex items-center">
-                    <MapPin className="w-5 h-5 text-primary mr-4" />
-                    <div>
-                      <p className="font-medium">Location</p>
-                      <p className="text-muted-foreground">Pune, Maharashtra, India</p>
-                    </div>
-                  </div>
-                </Card>
-              </div>
             </div>
 
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">Send Message</h3>
-              <Card className="p-6">
-                <form action="https://formspree.io/f/your-form-id" method="POST" className="space-y-4">
+            <div className="flex justify-center mt-8">
+              <Card className="p-6 w-full max-w-xl">
+                <form action="https://formspree.io/f/mgvlbwkg" method="POST" className="w-full max-w-2xl mx-auto rounded shadow space-y-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
                     <input 
                       type="text" 
                       id="name" 
                       name="name" 
+                      placeholder="e.g., John Doe, Coding Enthusiast"
                       required 
-                      className="w-full px-3 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
                   <div>
@@ -458,9 +445,10 @@ const PortfolioSite = () => {
                     <input 
                       type="email" 
                       id="email" 
-                      name="email" 
+                      name="email"
+                      placeholder="e.g., john.doe@example.com" 
                       required 
-                      className="w-full px-3 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
                   <div>
@@ -469,8 +457,9 @@ const PortfolioSite = () => {
                       type="text" 
                       id="subject" 
                       name="subject" 
+                      placeholder="e.g., Collaboration Idea, Bug Report, Just Saying Hi!"
                       required 
-                      className="w-full px-3 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
                   <div>
@@ -479,6 +468,7 @@ const PortfolioSite = () => {
                       id="message" 
                       name="message" 
                       rows={4} 
+                      placeholder="Your message... Maybe a joke, feedback, or a secret 😉"
                       required 
                       className="w-full px-3 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                     ></textarea>
