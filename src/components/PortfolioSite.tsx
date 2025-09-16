@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -21,11 +21,8 @@ import {
 } from 'lucide-react';
 import heroImage from '@/assets/hero-bg.jpg';
 import profilePhoto from '@/assets/shruti-profile.png';
-import ContactForm from '@/components/ContactForm';
-import ApiKeyInput from '@/components/ApiKeyInput';
 
 const PortfolioSite = () => {
-  const [geminiApiKey, setGeminiApiKey] = useState<string>('');
   const socialLinks = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shrutipatil71/', icon: Linkedin },
     { name: 'GitHub', url: 'https://github.com/ShrutiPatil7111', icon: Github },
@@ -430,13 +427,58 @@ const PortfolioSite = () => {
             </div>
 
             <div className="flex justify-center mt-8">
-              <div className="w-full max-w-xl">
-                <ApiKeyInput
-                  onApiKeySubmit={setGeminiApiKey}
-                  currentApiKey={geminiApiKey}
-                />
-                <ContactForm geminiApiKey={geminiApiKey} />
-              </div>
+              <Card className="p-6 w-full max-w-xl">
+                <form action="https://formspree.io/f/mgvlbwkg" method="POST" className="w-full max-w-2xl mx-auto rounded shadow space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name" 
+                      placeholder="e.g., John Doe, Coding Enthusiast"
+                      required 
+                      className="w-full px-4 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email"
+                      placeholder="e.g., john.doe@example.com" 
+                      required 
+                      className="w-full px-4 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
+                    <input 
+                      type="text" 
+                      id="subject" 
+                      name="subject" 
+                      placeholder="e.g., Collaboration Idea, Bug Report, Just Saying Hi!"
+                      required 
+                      className="w-full px-4 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+                    <textarea 
+                      id="message" 
+                      name="message" 
+                      rows={4} 
+                      placeholder="Your message... Maybe a joke, feedback, or a secret 😉"
+                      required 
+                      className="w-full px-3 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                    ></textarea>
+                  </div>
+                  <Button type="submit" className="w-full">
+                    Send Message
+                    <Mail className="w-4 h-4 ml-2" />
+                  </Button>
+                </form>
+              </Card>
             </div>
           </div>
         </div>
