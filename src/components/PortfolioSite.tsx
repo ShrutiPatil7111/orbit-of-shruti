@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -21,8 +21,25 @@ import {
 } from 'lucide-react';
 import heroImage from '@/assets/hero-bg.jpg';
 import profilePhoto from '@/assets/shruti-profile.png';
+import ContactForm from '@/components/ContactForm';
 
 const PortfolioSite = () => {
+  const [geminiApiKey, setGeminiApiKey] = useState('');
+
+  useEffect(() => {
+    const savedApiKey = localStorage.getItem('gemini-api-key');
+    if (savedApiKey) {
+      setGeminiApiKey(savedApiKey);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (geminiApiKey) {
+      localStorage.setItem('gemini-api-key', geminiApiKey);
+    } else {
+      localStorage.removeItem('gemini-api-key');
+    }
+  }, [geminiApiKey]);
   const socialLinks = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shrutipatil71/', icon: Linkedin },
     { name: 'GitHub', url: 'https://github.com/ShrutiPatil7111', icon: Github },
@@ -418,69 +435,10 @@ const PortfolioSite = () => {
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Get In Touch</h2>
           
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-6">
-              <p className="text-muted-foreground mb-8">
-                Let's Connect! Whether you want to discuss new opportunities, ideas or just want to have a chat about technology, feel free to reach out using the form below.
-              </p>
-              
-            </div>
-
-            <div className="flex justify-center mt-8">
-              <Card className="p-6 w-full max-w-xl">
-                <form action="https://formspree.io/f/mgvlbwkg" method="POST" className="w-full max-w-2xl mx-auto rounded shadow space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      name="name" 
-                      placeholder="e.g., John Doe, Coding Enthusiast"
-                      required 
-                      className="w-full px-4 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      name="email"
-                      placeholder="e.g., john.doe@example.com" 
-                      required 
-                      className="w-full px-4 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
-                    <input 
-                      type="text" 
-                      id="subject" 
-                      name="subject" 
-                      placeholder="e.g., Collaboration Idea, Bug Report, Just Saying Hi!"
-                      required 
-                      className="w-full px-4 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-                    <textarea 
-                      id="message" 
-                      name="message" 
-                      rows={4} 
-                      placeholder="Your message... Maybe a joke, feedback, or a secret 😉"
-                      required 
-                      className="w-full px-3 py-2 bg-input border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                    ></textarea>
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Send Message
-                    <Mail className="w-4 h-4 ml-2" />
-                  </Button>
-                </form>
-              </Card>
-            </div>
-          </div>
+          <ContactForm 
+            geminiApiKey={geminiApiKey} 
+            setGeminiApiKey={setGeminiApiKey} 
+          />
         </div>
       </section>
 
