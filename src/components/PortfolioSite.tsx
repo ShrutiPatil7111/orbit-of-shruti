@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -21,25 +21,9 @@ import {
 } from 'lucide-react';
 import heroImage from '@/assets/hero-bg.jpg';
 import profilePhoto from '@/assets/shruti-profile.png';
-import ContactForm from '@/components/ContactForm';
+import ContactForm from './ContactForm';
 
 const PortfolioSite = () => {
-  const [geminiApiKey, setGeminiApiKey] = useState('');
-
-  useEffect(() => {
-    const savedApiKey = localStorage.getItem('gemini-api-key');
-    if (savedApiKey) {
-      setGeminiApiKey(savedApiKey);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (geminiApiKey) {
-      localStorage.setItem('gemini-api-key', geminiApiKey);
-    } else {
-      localStorage.removeItem('gemini-api-key');
-    }
-  }, [geminiApiKey]);
   const socialLinks = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shrutipatil71/', icon: Linkedin },
     { name: 'GitHub', url: 'https://github.com/ShrutiPatil7111', icon: Github },
@@ -50,8 +34,9 @@ const PortfolioSite = () => {
   ];
 
   const skills = [
-    'Python', 'Java', 'C/C++', 'JavaScript', 'HTML/CSS', 'SQL', 
-    'Data Structures & Algorithms', 'OOPs', 'Git/GitHub', 'Streamlit', 'PyTorch'
+    'C/C++', 'Python', 'Java', 'HTML/CSS', 'JavaScript', 
+    'MySQL', 'DSA', 'OOPs', 'Git/GitHub', 
+    'Streamlit', 'Pandas', 'Folium', 'Tkinter', 'PyTorch', 'Arduino Uno', 'Tinkercad'
   ];
 
   const languages = [
@@ -59,7 +44,7 @@ const PortfolioSite = () => {
   ];
 
   const projects = [
-    {
+    { 
       title: 'GeoMap Dashboard',
       description: 'Geospatial web app for shapefile visualization with dynamic filtering and export capabilities.',
       tech: ['Python', 'Streamlit', 'GeoPandas', 'Folium'],
@@ -275,17 +260,15 @@ const PortfolioSite = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20">
+      <section id="skills" className="py-16">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Technical Skills</h2>
+          <h2 className="text-4xl font-bold text-center mt-8 mb-16 gradient-text">Technical Skills</h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {skills.map((skill, index) => (
-              <Card key={index} className="p-3 hover-lift text-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg mx-auto mb-2 flex items-center justify-center">
-                  <Code2 className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <h3 className="font-medium text-xs">{skill}</h3>
+              <Card key={index} className="p-3 hover-lift flex items-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <Code2 className="w-6 h-6 text-primary mr-3 flex-shrink-0" />
+                <h3 className="font-medium text-base">{skill}</h3>
               </Card>
             ))}
           </div>
@@ -293,17 +276,15 @@ const PortfolioSite = () => {
       </section>
 
       {/* Languages Section */}
-      <section className="py-16 bg-card/30">
+      <section className="py-8 bg-card/30">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 gradient-text">Languages</h2>
+          <h2 className="text-3xl font-bold text-center mb-16 gradient-text">Languages</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {languages.map((language, index) => (
-              <Card key={index} className="p-3 hover-lift text-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-lg mx-auto mb-2 flex items-center justify-center">
-                  <Globe className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <h3 className="font-medium text-xs">{language}</h3>
+              <Card key={index} className="p-3 hover-lift flex items-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <Globe className="w-6 h-6 text-primary mr-3 flex-shrink-0" />
+                <h3 className="font-medium text-base">{language}</h3>
               </Card>
             ))}
           </div>
@@ -366,9 +347,9 @@ const PortfolioSite = () => {
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Achievements</h2>
           
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-2xl mx-auto space-y-4">
             {achievements.map((achievement, index) => (
-              <Card key={index} className="p-6 hover-lift">
+              <Card key={index} className="p-3 hover-lift">
                 <div className="flex items-center">
                   <Award className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
                   <p className="text-lg">{achievement}</p>
@@ -382,30 +363,45 @@ const PortfolioSite = () => {
             <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Activities</h2>
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <Card className="p-6 hover-lift">
-                <Calendar className="w-6 h-6 text-accent mb-3" />
-                <h4 className="font-semibold mb-2">Code Clash 2025</h4>
-                <p className="text-muted-foreground">Participated through multiple rounds (Aptitude, CS Fundamentals and Coding Arena) and secured 402nd rank out of 450+ finalists in the Final Coding Round. (April 2025)</p>
+                <div className="flex items-center mb-2">
+                  <Calendar className="w-6 h-6 text-accent mr-3 flex-shrink-0" />
+                  <h4 className="font-semibold">Code Clash - Lets Code Community</h4>
+                </div>
+                <p className="text-muted-foreground">
+                  Participated through multiple rounds (Aptitude, CS Fundamentals and Coding Arena) and secured 402nd rank out of 450+ finalists in the Final Coding Round.
+                </p>
               </Card>
               
               <Card className="p-6 hover-lift">
-                <Calendar className="w-6 h-6 text-accent mb-3" />
-                <h4 className="font-semibold mb-2">Employability Skills Training</h4>
-                <p className="text-muted-foreground">Completed soft skills and employability training program designed to enhance professional readiness by Rubicon LifeSkills Initiative. (March 2024)</p>
+                <div className="flex items-center mb-2">
+                  <Calendar className="w-6 h-6 text-accent mr-3 flex-shrink-0" />
+                  <h4 className="font-semibold">IEEE Day - Code Spark Contest</h4>
+                </div>
+                <p className="text-muted-foreground">
+                  Participated in a national-level coding contest organized by IEEE Student Branch, solving real-world programming challenges as part of IEEE Day celebrations.
+                </p>
               </Card>
               
               <Card className="p-6 hover-lift">
-                <Calendar className="w-6 h-6 text-accent mb-3" />
-                <h4 className="font-semibold mb-2">Data Analytics & Machine Learning Workshop</h4>
-                <p className="text-muted-foreground">RParticipated in a 2-day hands-on workshop on Data Analytics & Machine Learning using Python under Lead College Scheme. (March 2024)</p>
-                
+                <div className="flex items-center mb-2">
+                  <Calendar className="w-6 h-6 text-accent mr-3 flex-shrink-0" />
+                  <h4 className="font-semibold">Employability Skills Training</h4>
+                </div>
+                <p className="text-muted-foreground">
+                  Completed soft skills and employability training program designed to enhance professional readiness by Rubicon LifeSkills Initiative.
+                </p>
               </Card>
               
               <Card className="p-6 hover-lift">
-                <Calendar className="w-6 h-6 text-accent mb-3" />
-                <h4 className="font-semibold mb-2">IEEE Day - Code Spark Contest</h4>
-                <p className="text-muted-foreground">Participated in a national-level coding contest organized by IEEE Student Branch, solving real-world programming challenges as part of IEEE Day celebrations. (October 2023)</p>
-                
+                <div className="flex items-center mb-2">
+                  <Calendar className="w-6 h-6 text-accent mr-3 flex-shrink-0" />
+                  <h4 className="font-semibold">Machine Learning Workshop</h4>
+                </div>
+                <p className="text-muted-foreground">
+                  Participated in a 2-day hands-on workshop on Data Analytics & Machine Learning using Python under Lead College Scheme.
+                </p>
               </Card>
+              
             </div>
           </div>
           
@@ -421,8 +417,8 @@ const PortfolioSite = () => {
             {certificates.map((cert, index) => (
               <Card key={index} className="p-4 hover-lift">
                 <div className="flex items-start">
-                  <FileText className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                  <p className="text-sm">{cert}</p>
+                  <FileText className="w-6 h-6 text-primary mr-3 mt-1 flex-shrink-0" />
+                  <p className="text-base">{cert}</p>
                 </div>
               </Card>
             ))}
@@ -433,12 +429,20 @@ const PortfolioSite = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Get In Touch</h2>
+          <h2 className="text-4xl font-bold text-center mb-8 gradient-text">Get In Touch</h2>
           
-          <ContactForm 
-            geminiApiKey={geminiApiKey} 
-            setGeminiApiKey={setGeminiApiKey} 
-          />
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6">
+              <p className="text-muted-foreground">
+                Let's Connect! Whether you want to discuss new opportunities, ideas or just want to have a chat about technology, feel free to reach out using the form below.
+              </p>
+            </div>
+
+            <div className="flex justify-center">
+              <ContactForm />
+            </div>
+            
+          </div>
         </div>
       </section>
 
