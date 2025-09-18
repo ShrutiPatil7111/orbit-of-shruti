@@ -27,14 +27,18 @@ app.post('/api/enhance', async (req, res) => {
 
   try {
     const response = await axios.post(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent',
-      { contents: [{ parts: [{ text }] }] },
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent',
+      { prompt: { text } },      // Your input text
+      {
+        temperature: 0.7,      // Optional: controls randomness
+        candidateCount: 1      // Optional: how many generated results you want
+      },  
       {
         headers: { 'Content-Type': 'application/json' },
         params: { key: GEMINI_API_KEY }
       }
     );
-    const enhanced = response.data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    const enhanced = response.data.candidates?.[0]?.output || '';
     res.json({ enhanced });
   } catch (error) {
     console.error(error);  // Add logging for easier debugging

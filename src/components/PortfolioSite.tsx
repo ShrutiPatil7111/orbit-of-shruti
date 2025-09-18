@@ -17,7 +17,9 @@ import {
   Award,
   Calendar,
   FileText,
-  Download
+  Download,
+  ForkKnife,
+  Sparkles
 } from 'lucide-react';
 import heroImage from '@/assets/hero-bg.jpg';
 import profilePhoto from '@/assets/shruti-profile.png';
@@ -72,7 +74,7 @@ const PortfolioSite = () => {
       description: 'Responsive static website built using HTML & CSS with modern design.',
       tech: ['HTML5', 'CSS3', 'Responsive Design'],
       githubUrl: 'https://github.com/ShrutiPatil7111/Restaurant_Landing_Page',
-      icon: Globe
+      icon: ForkKnife
     }
   ];
 
@@ -239,7 +241,7 @@ const PortfolioSite = () => {
                     <div className="absolute left-4 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
                     <Card className="ml-12 p-6 hover-lift">
                       <h4 className="font-semibold">HSC – PCM</h4>
-                      <p className="text-primary">Dnyandeep Junior College</p>
+                      <p className="text-primary">Dnyandeep Junior College, Islampur</p>
                       <p className="text-sm text-muted-foreground">2021 • 97.50%</p>
                     </Card>
                   </div>
@@ -248,7 +250,7 @@ const PortfolioSite = () => {
                     <div className="absolute left-4 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
                     <Card className="ml-12 p-6 hover-lift">
                       <h4 className="font-semibold">SSC</h4>
-                      <p className="text-primary">Kamalabai Ramnane Kanya Vidyalaya</p>
+                      <p className="text-primary">Kamalabai Ramnane Kanya Vidyalaya, Islampur</p>
                       <p className="text-sm text-muted-foreground">2019 • 96.60%</p>
                     </Card>
                   </div>

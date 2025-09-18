@@ -191,6 +191,18 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 25px hsl(var(--primary) / 0.15);
   }
+
+  .toast-success { 
+    background-color: #22c55e !important; /* Tailwind green-500 */ 
+    color: #000 !important; 
+    border: 1px solid #16a34a !important; /* Tailwind green-600 */ 
+  }
+
+  .toast-failure {
+    background-color: #ef4444 !important; /* Tailwind red-500 */
+    color: #000 !important; /* Black text */
+    border: 1px solid #b91c1c !important; /* Tailwind red-700 border */ 
+  }
 }
 
 @layer utilities {

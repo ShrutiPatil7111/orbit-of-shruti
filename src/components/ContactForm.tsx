@@ -28,7 +28,15 @@ const ContactForm: React.FC = () => {
   };
 
   const enhanceText = async (field: "subject" | "message", currentText: string) => {
-    if (!currentText.trim()) return;
+    if (!currentText.trim()) {
+      toast({
+        title: "Nothing to enhance!",
+        description: "Please write something in the field before enhancing.",
+        variant: "destructive",
+        className: "toast-failure"
+      });
+      return
+    };
     setEnhancingField(field);
     try {
       const response = await fetch("http://localhost:5000/api/enhance", {
@@ -41,16 +49,18 @@ const ContactForm: React.FC = () => {
         setFormData(prev => ({ ...prev, [field]: data.enhanced }));
       } else {
         toast({
-          title: "Enhancement Failed",
+          title: "Enhancement Failed!",
           description: data.error || "Could not enhance text.",
-          variant: "destructive"
+          variant: "destructive",
+          className: "toast-failure"
         });
       }
     } catch {
       toast({
-        title: "Enhancement Failed",
+        title: "Enhancement Failed!",
         description: "Could not reach enhancement service.",
-        variant: "destructive"
+        variant: "destructive",
+        className: "toast-failure"
       });
     }
     setEnhancingField(null);
@@ -75,16 +85,18 @@ const ContactForm: React.FC = () => {
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         toast({
-          title: "Error",
+          title: "Error!",
           description: "Failed to send message. Please try again.",
-          variant: "destructive"
+          variant: "destructive",
+          className: "toast-failure"
         });
       }
     } catch {
       toast({
-        title: "Error",
+        title: "Error!",
         description: "Failed to send message. Please try again.",
-        variant: "destructive"
+        variant: "destructive",
+        className: "toast-failure"
       });
     }
     setIsSubmitting(false);
@@ -125,11 +137,13 @@ const ContactForm: React.FC = () => {
               <label htmlFor="subject" className="block text-sm font-medium">Subject</label>
               <button
                 type="button"
-                className="text-xs px-2 py-1 rounded bg-primary text-white"
+                className="text-xs px-2 py-1 rounded bg-primary text-black flex items-center font-bold"
                 onClick={() => enhanceText("subject", formData.subject)}
                 disabled={enhancingField === "subject"}
               >
-                {enhancingField === "subject" ? "Enhancing..." : "Enhance ✨"}
+                {enhancingField === "subject" 
+                ? "Enhancing..." 
+                : <><Sparkles className="w-4 h-4 mr-1" /> Enhance</>}
               </button>
             </div>
             <input
@@ -148,11 +162,13 @@ const ContactForm: React.FC = () => {
               <label htmlFor="message" className="block text-sm font-medium">Message</label>
               <button
                 type="button"
-                className="text-xs px-2 py-1 rounded bg-primary text-white"
+                className="text-xs px-2 py-1 rounded bg-primary text-black flex items-center font-bold"
                 onClick={() => enhanceText("message", formData.message)}
                 disabled={enhancingField === "message"}
               >
-                {enhancingField === "message" ? "Enhancing..." : "Enhance ✨"}
+                {enhancingField === "message" 
+                ? "Enhancing..." 
+                : <><Sparkles className="w-4 h-4 mr-1" /> Enhance</>}
               </button>
             </div>
             <textarea
@@ -168,7 +184,7 @@ const ContactForm: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 bg-primary text-white rounded-md"
+            className="w-full px-4 py-2 bg-primary text-black rounded-md font-bold"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Sending..." : "Send Message"}
