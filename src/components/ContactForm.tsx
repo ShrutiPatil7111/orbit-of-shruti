@@ -39,7 +39,7 @@ const ContactForm: React.FC = () => {
     };
     setEnhancingField(field);
     try {
-      const response = await fetch("https://api-gemini-enhance.onrender.com", {
+      const response = await fetch("https://api-gemini-enhance.onrender.com/api/enhance", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: currentText })
