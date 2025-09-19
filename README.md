@@ -121,7 +121,6 @@ Visit `http://localhost:8080` and test the AI-powered contact form!
 - **Mobile-First**: Optimized for all screen sizes
 - **Modern UI**: Clean, professional design using shadcn/ui
 - **Accessibility**: WCAG compliant with proper ARIA labels
-- **Dark/Light Theme**: Adaptive theming support
 
 ### 🔒 Production Features
 - **Rate Limiting**: Prevents API abuse (20 requests/hour per IP)
@@ -221,9 +220,9 @@ I'm always excited to discuss technology, share learning experiences, and explor
 
 ### 🔗 Professional Links
 - **Portfolio**: [shrutipatilportfolio.lovable.app](https://shrutipatilportfolio.lovable.app)
-- **LinkedIn**: [Connect with me](https://linkedin.com/in/yourprofile)
+- **LinkedIn**: [Connect with me](https://www.linkedin.com/in/shrutipatil71/)
 - **GitHub**: [Follow my work](https://github.com/ShrutiPatil7111)
-- **Email**: [Contact me directly](mailto:your.email@example.com)
+- **Email**: [Contact me directly](mailto:shrutikpatil7111@gmail.com)
 
 ### 💬 Let's Discuss
 - **AI Integration**: How to enhance UX with AI
