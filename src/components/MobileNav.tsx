@@ -27,19 +27,14 @@ const MobileNav: React.FC<MobileNavProps> = ({ onNavClick }) => {
 
   return (
     <div className="relative md:hidden flex flex-col items-end">
-      {/* Menu label + button inline */}
-      <div className="flex items-center gap-2">
+      {/* Menu button with icon and text */}
+      <div 
+        className="flex items-center gap-2 cursor-pointer p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
+        onClick={toggleMenu}
+        aria-label="Toggle mobile menu"
+      >
+        {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         <span className="text-sm font-medium text-foreground">Menu</span>
-
-        {/* Mobile Menu Button */}
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={toggleMenu}
-          aria-label="Toggle mobile menu"
-        >
-          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </Button>
       </div>
 
       {/* Mobile Menu Dropdown */}
