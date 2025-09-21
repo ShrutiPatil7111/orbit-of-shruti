@@ -47,30 +47,31 @@ const MobileNav: React.FC<MobileNavProps> = ({ onNavClick }) => {
           />
           
           {/* Mobile Menu Panel */}
-          <div className="fixed top-0 right-0 h-full w-64 bg-background border-l border-border z-50 md:hidden transform transition-transform duration-300">
+          <div className="fixed top-0 right-0 h-full w-72 bg-background/95 backdrop-blur-md border-l border-border z-50 md:hidden transform transition-transform duration-300 shadow-2xl">
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-border">
-                <h2 className="text-lg font-semibold gradient-text">Menu</h2>
+              <div className="flex items-center justify-between p-6 border-b border-border/50">
+                <h2 className="text-xl font-bold gradient-text">Navigation</h2>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={toggleMenu}
                   aria-label="Close menu"
+                  className="hover:bg-primary/10"
                 >
                   <X className="w-6 h-6" />
                 </Button>
               </div>
 
               {/* Navigation Links */}
-              <nav className="flex-1 p-4">
-                <div className="space-y-2">
+              <nav className="flex-1 p-6">
+                <div className="space-y-3">
                   {navItems.map((item) => (
                     <a
                       key={item.href}
                       href={item.href}
                       onClick={() => handleNavClick(item.href)}
-                      className="block py-3 px-4 rounded-lg text-lg font-medium hover:bg-accent/10 hover:text-primary transition-colors"
+                      className="block py-4 px-5 rounded-xl text-lg font-medium bg-card/50 hover:bg-primary/10 hover:text-primary transition-all duration-200 border border-border/30 hover:border-primary/30"
                     >
                       {item.label}
                     </a>

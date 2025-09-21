@@ -139,7 +139,7 @@ const PortfolioSite = () => {
             <img 
               src={profilePhoto} 
               alt="Shruti Kiran Patil"
-              className="w-48 h-48 rounded-full mx-auto mb-8 border-4 border-primary/50 shadow-2xl hover-glow object-cover object-center"
+              className="w-48 h-48 rounded-full mx-auto mb-8 border-4 border-primary/50 shadow-2xl hover-glow object-cover object-top"
             />
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               Hi, I'm <span className="gradient-text">Shruti</span> 👋
