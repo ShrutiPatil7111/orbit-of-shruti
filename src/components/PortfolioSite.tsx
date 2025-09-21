@@ -24,8 +24,15 @@ import {
 import heroImage from '@/assets/hero-bg.jpg';
 import profilePhoto from '@/assets/shruti-profile.png';
 import ContactForm from './ContactForm';
+import MobileNav from './MobileNav';
 
 const PortfolioSite = () => {
+  const handleNavClick = (section: string) => {
+    const element = document.querySelector(section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const socialLinks = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shrutipatil71/', icon: Linkedin },
     { name: 'GitHub', url: 'https://github.com/ShrutiPatil7111', icon: Github },
@@ -113,6 +120,7 @@ const PortfolioSite = () => {
               <a href="#achievements" className="hover:text-primary transition-colors">Achievements</a>
               <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
             </div>
+            <MobileNav onNavClick={handleNavClick} />
           </div>
         </div>
       </nav>
@@ -131,7 +139,7 @@ const PortfolioSite = () => {
             <img 
               src={profilePhoto} 
               alt="Shruti Kiran Patil"
-              className="w-48 h-48 rounded-full mx-auto mb-8 border-4 border-primary/50 shadow-2xl hover-glow object-cover"
+              className="w-48 h-48 rounded-full mx-auto mb-8 border-4 border-primary/50 shadow-2xl hover-glow object-cover object-center"
             />
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               Hi, I'm <span className="gradient-text">Shruti</span> 👋
@@ -266,7 +274,7 @@ const PortfolioSite = () => {
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mt-8 mb-16 gradient-text">Technical Skills</h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {skills.map((skill, index) => (
               <Card key={index} className="p-3 hover-lift flex items-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <Code2 className="w-6 h-6 text-primary mr-3 flex-shrink-0" />
@@ -282,7 +290,7 @@ const PortfolioSite = () => {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-16 gradient-text">Languages</h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {languages.map((language, index) => (
               <Card key={index} className="p-3 hover-lift flex items-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <Globe className="w-6 h-6 text-primary mr-3 flex-shrink-0" />
