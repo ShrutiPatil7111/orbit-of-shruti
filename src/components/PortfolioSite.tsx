@@ -126,7 +126,7 @@ const PortfolioSite = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section id="home" className="min-h-[80vh] md:min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="stars"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
@@ -139,12 +139,12 @@ const PortfolioSite = () => {
             <img 
               src={profilePhoto} 
               alt="Shruti Kiran Patil"
-              className="w-48 h-48 rounded-full mx-auto mb-8 border-4 border-primary/50 shadow-2xl hover-glow object-cover object-center md:mt-0 mt-16"
+              className="w-36 h-36 md:w-48 md:h-48 rounded-full mx-auto mb-8 border-4 border-primary/50 shadow-2xl hover-glow object-cover object-center md:mt-0 mt-20"
             />
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-4xl md:text-7xl font-bold mb-6">
               Hi, I'm <span className="gradient-text">Shruti</span> 👋
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-lg md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Computer Engineering Graduate 2025 | Software Developer | Problem Solver | Adaptable to new technologies
             </p>
             
@@ -179,7 +179,7 @@ const PortfolioSite = () => {
       {/* About Section */}
       <section id="about" className="py-20 bg-card/50">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">About Me</h2>
+          <h2 className="text-4xl font-bold text-center mb-8 md:mb-16 gradient-text">About Me</h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
@@ -270,9 +270,9 @@ const PortfolioSite = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-16">
+      <section id="skills" className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mt-8 mb-16 gradient-text">Technical Skills</h2>
+          <h2 className="text-4xl font-bold text-center md:mt-8 mb-8 md:mb-16 gradient-text">Technical Skills</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {skills.map((skill, index) => (
@@ -288,7 +288,7 @@ const PortfolioSite = () => {
       {/* Languages Section */}
       <section className="py-8 bg-card/30">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-16 gradient-text">Languages</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 md:mb-16 gradient-text">Languages</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {languages.map((language, index) => (
@@ -304,7 +304,7 @@ const PortfolioSite = () => {
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-card/50">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
+          <h2 className="text-4xl font-bold text-center mb-8 md:mb-16 gradient-text">Featured Projects</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
@@ -355,7 +355,7 @@ const PortfolioSite = () => {
       {/* Achievements Section */}
       <section id="achievements" className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Achievements</h2>
+          <h2 className="text-4xl font-bold text-center mb-8 md:mb-16 gradient-text">Achievements</h2>
           
           <div className="max-w-2xl mx-auto space-y-4">
             {achievements.map((achievement, index) => (
@@ -370,7 +370,7 @@ const PortfolioSite = () => {
 
           {/* Activities */}
           <div className="mt-16">
-            <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Activities</h2>
+            <h2 className="text-4xl font-bold text-center mb-8 md:mb-16 gradient-text">Activities</h2>
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <Card className="p-6 hover-lift">
                 <div className="flex items-center mb-2">
@@ -421,7 +421,7 @@ const PortfolioSite = () => {
       {/* Certificates Section */}
       <section className="py-20 bg-card/50">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Certifications</h2>
+          <h2 className="text-4xl font-bold text-center mb-8 md:mb-16 gradient-text">Certifications</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
             {certificates.map((cert, index) => (
@@ -439,7 +439,7 @@ const PortfolioSite = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-8 gradient-text">Get In Touch</h2>
+          <h2 className="text-4xl font-bold text-center mb-4 md:mb-8 gradient-text">Get In Touch</h2>
           
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6">

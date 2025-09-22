@@ -46,13 +46,13 @@ const MobileNav: React.FC<MobileNavProps> = ({ onNavClick }) => {
           />
           
           {/* Mobile Menu Panel - W3Schools inspired */}
-          <div className="absolute top-full right-0 mt-2 w-64 bg-background border border-border rounded-lg shadow-xl z-50 overflow-hidden">
+          <div className="absolute top-full right-0 mt-2 w-30 bg-background border border-border rounded-lg shadow-xl z-50 overflow-hidden">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="block py-4 px-6 text-lg font-medium text-foreground hover:bg-primary hover:text-primary-foreground transition-colors border-b border-border/30 last:border-b-0"
+                className="block py-2 px-2 text-sm font-medium text-foreground hover:bg-primary hover:text-primary-foreground transition-colors border-b border-border/30 last:border-b-0"
               >
                 {item.label}
               </a>

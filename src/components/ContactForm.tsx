@@ -103,9 +103,9 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex justify-center mt-8"> {/* Changed max-w-4xl mx-auto to w-full */}
-      <Card className="p-4 w-full"> {/* Removed max-w-5xl */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="w-full flex justify-center mt-2 md:mt-8"> {/* Changed max-w-4xl mx-auto to w-full */}
+      <Card className="p-2 md:p-4 w-full"> {/* Removed max-w-5xl */}
+        <form onSubmit={handleSubmit} className="space-y-2 md:space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
             <input
